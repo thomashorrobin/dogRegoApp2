@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'welcome/setAdmin'
 
+  get 'welcome/unSetAdmin'
+
   devise_for :users
   resources :regos
   resources :breeds
