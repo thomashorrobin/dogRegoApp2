@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
+  get 'welcome/setAdmin'
+
   devise_for :users
   resources :regos
   resources :breeds
