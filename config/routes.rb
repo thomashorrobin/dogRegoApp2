@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :owners
+
+  #devise_for :owners
   resources :regos
   resources :breeds
   resources :dogs
-  resources :owners
+  resources :owners #, :only => [:show, :edit, :index]
 
   root 'owner#index'
   # The priority is based upon order of creation: first created -> highest priority.
