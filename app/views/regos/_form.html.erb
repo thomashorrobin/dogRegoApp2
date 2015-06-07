@@ -1,0 +1,29 @@
+<%= form_for(@rego) do |f| %>
+  <% if @rego.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rego.errors.count, "error") %> prohibited this rego from being saved:</h2>
+
+      <ul>
+      <% @rego.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :RegoLength %><br>
+    <%= f.number_field :RegoLength %>
+  </div>
+  <div class="field">
+    <%= f.label :StartDate %><br>
+    <%= f.text_field :StartDate %>
+  </div>
+  <div class="field">
+    <%= f.label :EndDate %><br>
+    <%= f.date_select :EndDate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

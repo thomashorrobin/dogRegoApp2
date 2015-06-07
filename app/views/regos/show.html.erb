@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Regolength:</strong>
+  <%= @rego.RegoLength %>
+</p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @rego.StartDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @rego.EndDate %>
+</p>
+
+<%= link_to 'Edit', edit_rego_path(@rego) %> |
+<%= link_to 'Back', regos_path %>

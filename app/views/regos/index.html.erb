@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Regos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Regolength</th>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regos.each do |rego| %>
+      <tr>
+        <td><%= rego.RegoLength %></td>
+        <td><%= rego.StartDate %></td>
+        <td><%= rego.EndDate %></td>
+        <td><%= link_to 'Show', rego %></td>
+        <td><%= link_to 'Edit', edit_rego_path(rego) %></td>
+        <td><%= link_to 'Destroy', rego, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rego', new_rego_path %>
