@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :owners
+  devise_for :users
   resources :regos
   resources :breeds
   resources :dogs
-  #resources :owners #, :only => [:show, :edit, :index]
+  resources :owners
 
-  root 'owner#index'
+  #root 'owners#index'
+
+  root to: 'owners#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
