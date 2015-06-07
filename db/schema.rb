@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607025800) do
+ActiveRecord::Schema.define(version: 20150607034544) do
 
   create_table "breeds", force: :cascade do |t|
     t.string   "BreedName",  limit: 255
@@ -33,4 +33,16 @@ ActiveRecord::Schema.define(version: 20150607025800) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "regos", force: :cascade do |t|
+    t.integer  "RegoLength", limit: 4
+    t.date     "StartDate"
+    t.date     "EndDate"
+    t.integer  "dog_id",     limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "regos", ["dog_id"], name: "index_regos_on_dog_id", using: :btree
+
+  add_foreign_key "regos", "dogs"
 end

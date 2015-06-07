@@ -18,7 +18,7 @@ class RegosControllerTest < ActionController::TestCase
 
   test "should create rego" do
     assert_difference('Rego.count') do
-      post :create, rego: { EndDate: @rego.EndDate, RegoLength: @rego.RegoLength, StartDate: @rego.StartDate }
+      post :create, rego: { EndDate: @rego.EndDate, RegoLength: @rego.RegoLength, StartDate: @rego.StartDate, dog_id: @rego.dog_id }
     end
 
     assert_redirected_to rego_path(assigns(:rego))
@@ -35,7 +35,7 @@ class RegosControllerTest < ActionController::TestCase
   end
 
   test "should update rego" do
-    patch :update, id: @rego, rego: { EndDate: @rego.EndDate, RegoLength: @rego.RegoLength, StartDate: @rego.StartDate }
+    patch :update, id: @rego, rego: { EndDate: @rego.EndDate, RegoLength: @rego.RegoLength, StartDate: @rego.StartDate, dog_id: @rego.dog_id }
     assert_redirected_to rego_path(assigns(:rego))
   end
 

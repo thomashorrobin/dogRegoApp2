@@ -4,8 +4,10 @@ one:
   RegoLength: 1
   StartDate: 
   EndDate: 2015-06-07
+  dog_id: 
 
 two:
   RegoLength: 1
   StartDate: 
   EndDate: 2015-06-07
+  dog_id: 

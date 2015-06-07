@@ -69,6 +69,6 @@ class RegosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rego_params
-      params.require(:rego).permit(:RegoLength, :StartDate, :EndDate)
+      params.require(:rego).permit(:RegoLength, :StartDate, :EndDate, :dog_id)
     end
 end
