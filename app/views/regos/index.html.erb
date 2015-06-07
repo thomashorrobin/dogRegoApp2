@@ -16,10 +16,10 @@
   <tbody>
     <% @regos.each do |rego| %>
       <tr>
-        <td><%= rego.RegoLength %></td>
+        <td><%= rego.RegoLength.to_s << " months" %></td>
         <td><%= rego.StartDate %></td>
         <td><%= rego.EndDate %></td>
-        <td><%= rego.dog %></td>
+        <td><%= rego.dog.Name %></td>
         <td><%= link_to 'Show', rego %></td>
         <td><%= link_to 'Edit', edit_rego_path(rego) %></td>
         <td><%= link_to 'Destroy', rego, method: :delete, data: { confirm: 'Are you sure?' } %></td>

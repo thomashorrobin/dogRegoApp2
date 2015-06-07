@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :StartDate %><br>
-    <%= f.text_field :StartDate %>
+    <%= f.date_select :StartDate %>
   </div>
   <div class="field">
     <%= f.label :EndDate %><br>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :dog_id %><br>
-    <%= f.text_field :dog_id %>
+    <%= f.collection_select :dog_id, Dog.all,:id,:Name, include_blank: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
