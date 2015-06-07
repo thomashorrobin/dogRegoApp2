@@ -7,7 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Postaladdress</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -17,6 +17,7 @@
         <td><%= owner.Name %></td>
         <td><%= owner.PostalAddress %></td>
         <td><%= link_to 'Show', owner %></td>
+        <td><%= link_to 'Show Dogs', dogs_path(owner) %></td>
         <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
         <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
