@@ -39,6 +39,31 @@ class WelcomeController < ApplicationController
     @rego.EndDate = Time.now + (months * 4 * 7 * 24 * 60 * 60)
     @rego.dog = @dog
     @rego.save
+
+    require 'mail'
+
+      Mail.defaults do
+      delivery_method :smtp, {
+        :port      => 587,
+        :address   => "smtp.mandrillapp.com",
+        :user_name => "thomasroberthorrobin@gmail.com",
+        :password  => "6RyJ5TlEBO-bMbwGqTDFTQ"
+      }
+    end
+        mail = Mail.deliver do
+      to      "thomasroberthorrobin@gmail.com"
+      from    'Thomas Horrobin <thomas@dogregoapp.co.nz>' # Your from name and email address
+      subject 'How to pay for Barrys registration!'
+
+      text_part do
+        body 'Mandrill speaks plaintext'
+      end
+
+      html_part do
+        content_type 'text/html; charset=UTF-8'
+        body '<em>Mandrill speaks wehbkajwcfj <strong>HTML</strong></em>'
+      end
+    end
     render html: "registered " << @dog.Name << " for " << months.to_s << " months"
   end
 end
