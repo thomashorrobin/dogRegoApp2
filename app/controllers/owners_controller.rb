@@ -19,6 +19,7 @@ class OwnersController < ApplicationController
 
   # GET /owners/1/edit
   def edit
+    
   end
 
   # POST /owners

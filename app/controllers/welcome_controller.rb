@@ -24,4 +24,14 @@ class WelcomeController < ApplicationController
     @user.admin = false
     @user.save
   end
+
+  def createdog
+    @dog = Dog.new
+    @owner = Owner.find_by email: current_user.email
+  end
+
+  def addrego
+    d = params[:dog_id]
+    months = params[:months]
+  end
 end

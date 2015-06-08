@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'welcome/unSetAdmin'
 
+  get 'welcome/createdog'
+
   devise_for :users
   resources :regos
   resources :breeds
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
 
   #root 'owners#index'
 
-  root 'owners#index'
+  root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
