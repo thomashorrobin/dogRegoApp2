@@ -3,14 +3,14 @@ class WelcomeController < ApplicationController
   	if !user_signed_in?
   		render html: "please sign in"
   	end
+    @owner = Owner.new
     if Owner.exists?(email: current_user.email)
       @owner = Owner.find_by email: current_user.email
     else
-      @owner = Owner.new
       @owner.email = current_user.email
       @owner.save
     end
-    
+    @dogs = @owner.dogs
   end
 
   def setAdmin
