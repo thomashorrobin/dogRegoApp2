@@ -32,7 +32,13 @@ class WelcomeController < ApplicationController
 
   def addrego
     @dog = Dog.find(params[:dog_id])
-    months = params[:months]
+    months = params[:months].to_i
+    @rego = Rego.new
+    @rego.RegoLength = months
+    @rego.StartDate = Time.now
+    @rego.EndDate = Time.now + (months * 4 * 7 * 24 * 60 * 60)
+    @rego.dog = @dog
+    @rego.save
     render html: "registered " << @dog.Name << " for " << months.to_s << " months"
   end
 end
