@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'welcome/createdog'
 
+  post 'welcome/addrego'
+
   devise_for :users
   resources :regos
   resources :breeds

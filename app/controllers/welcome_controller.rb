@@ -31,7 +31,8 @@ class WelcomeController < ApplicationController
   end
 
   def addrego
-    d = params[:dog_id]
+    @dog = Dog.find(params[:dog_id])
     months = params[:months]
+    render html: "registered " << @dog.Name << " for " << months.to_s << " months"
   end
 end
