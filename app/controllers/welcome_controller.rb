@@ -1,17 +1,19 @@
 class WelcomeController < ApplicationController
   def index
   	if !user_signed_in?
-  		render html: "please sign in"
-  	end
-    @owner = Owner.new
-    if Owner.exists?(email: current_user.email)
-      @owner = Owner.find_by email: current_user.email
+  		sign_up_user_path = '/users/sign_up'
+      redirect_to sign_up_user_path
     else
-      @owner.email = current_user.email
-      @owner.save
-    end
-    @dogs = @owner.dogs
-    @price_plans = PricePlan.all
+      if Owner.exists?(email: current_user.email)
+        @owner = Owner.find_by email: current_user.email
+      else
+        @owner = Owner.new
+        @owner.email = current_user.email
+        @owner.save
+      end
+      @dogs = @owner.dogs
+      @price_plans = PricePlan.all
+  	end
   end
 
   def setAdmin
