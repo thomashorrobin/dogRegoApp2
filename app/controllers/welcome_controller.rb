@@ -32,11 +32,11 @@ class WelcomeController < ApplicationController
 
   def addrego
     @dog = Dog.find(params[:dog_id])
-    months = params[:months].to_i
+    @months = params[:months].to_i
     @rego = Rego.new
-    @rego.RegoLength = months
+    @rego.RegoLength = @months
     @rego.StartDate = Time.now
-    @rego.EndDate = Time.now + (months * 4 * 7 * 24 * 60 * 60)
+    @rego.EndDate = Time.now + (@months * 4 * 7 * 24 * 60 * 60)
     @rego.dog = @dog
     @rego.save
 
@@ -50,8 +50,9 @@ class WelcomeController < ApplicationController
         :password  => "6RyJ5TlEBO-bMbwGqTDFTQ"
       }
     end
-        mail = Mail.deliver do
-      to      "thomasroberthorrobin@gmail.com"
+
+        mail = Mail.new do
+      # to      "thomasroberthorrobin@gmail.com"
       from    'Thomas Horrobin <thomas@dogregoapp.co.nz>' # Your from name and email address
       subject 'How to pay for Barrys registration!'
 
@@ -64,6 +65,9 @@ class WelcomeController < ApplicationController
         body '<em>Mandrill speaks wehbkajwcfj <strong>HTML</strong></em>'
       end
     end
-    render html: "registered " << @dog.Name << " for " << months.to_s << " months"
+
+    mail.to = current_user.email
+
+    mail.deliver!
   end
 end
