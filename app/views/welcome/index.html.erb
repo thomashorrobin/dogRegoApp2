@@ -1,10 +1,10 @@
 <h1>Welcome <%= @owner.Name %></h1>
 <%= link_to 'Update my details', edit_owner_path(@owner), :class => "btn btn-info active" %>
-<%= link_to 'Add Dog', action: 'createdog' %>
 <br />
+<hr />
 <% @dogs.each do |dog| %>
 	<h3><%= dog.Name %></h3>
-	<% if !dog.is_registered? %>
+	<% if !dog.is_registered %>
 		<%= form_tag("/welcome/addrego") do %>
 			<%= hidden_field_tag(:dog_id, dog.id) %>
 		  <div class="field">
@@ -19,4 +19,6 @@
 	<% else %>
 		<p><%= dog.Name %> Is allready registered</p>
 	<% end %>
+	<hr />
 <% end %>
+<%= link_to 'Add Dog', action: 'createdog' %>

@@ -3,7 +3,7 @@ class Dog < ActiveRecord::Base
 	belongs_to :breed
 	belongs_to :owner
 
-	def is_registered?
+	def is_registered
 		registered = false
 		regos.each do |rego|
 			if rego.current_rego?

@@ -22,6 +22,10 @@ class WelcomeController < ApplicationController
   	@user.save
   end
 
+  def report
+    @owners = Owner.all
+  end
+
   def unSetAdmin
     @user = current_user
     @user.admin = false

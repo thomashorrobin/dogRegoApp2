@@ -1,0 +1,30 @@
+<% @owners.each do |owner| %>
+	<h3><%= owner.Name %> - <i><%= owner.PostalAddress %></i></h3>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Birthday</th>
+	      <th>Breed</th>
+	      <th>Is Registered</th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% owner.dogs.each do |dog| %>
+	      <tr>
+	        <td><%= dog.Name %></td>
+	        <td><%= dog.Birthday %></td>
+	        <td><%= dog.breed.BreedName %></td>
+	        <td>
+	        	<% if dog.is_registered %>
+	        		<%= dog.Name %> has been registered for <%= dog.regos.first.RegoLength.to_s %> months until <%= dog.regos.first.EndDate.to_s %>
+	        	<% else %>
+	        		Unregistered
+	        	<% end %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+<% end %>

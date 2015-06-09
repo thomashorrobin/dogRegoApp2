@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   post 'welcome/addrego'
 
+  get 'welcome/report'
+
   devise_for :users
   resources :regos
   resources :breeds

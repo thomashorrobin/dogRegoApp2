@@ -19,12 +19,14 @@
 <body>
 
 <div class="container">
+	<%= link_to "Home", root_path %>
 	<% if user_signed_in? %>
 	  <% if current_user.admin? %>
 	    <%= link_to 'Owners', owners_path %>
 	    <%= link_to 'Breeds', breeds_path %>
 	    <%= link_to 'Dogs', dogs_path %>
 	    <%= link_to 'Registrations', regos_path %>
+	    <%= link_to 'Report', '/welcome/report' %>
 	    <%= link_to 'Unmake admin', controller: 'welcome', action: 'unSetAdmin' %>
 	  <% else %>
 	    <%= link_to 'Make admin', controller: 'welcome', action: 'setAdmin' %>
