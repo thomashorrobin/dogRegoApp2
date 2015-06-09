@@ -1,5 +1,5 @@
-<h2><%= "Congratulations! You have registered " << @dog.Name << " for " << @months.to_s << " months!" %></h2>
+<h2><%= "Congratulations! You have registered " << @dog.Name << " for " << @price_plan.months.to_s << " months!" %></h2>
 <hr />
-<h3>To complete <%= @dog.Name %>'s registration please pay </h3>
+<p><%= @rego.comformation_message %></p>
 <hr />
 <%= link_to "Back", root_path %>

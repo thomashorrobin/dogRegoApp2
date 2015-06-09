@@ -70,7 +70,10 @@ class WelcomeController < ApplicationController
 
     mail.to = current_user.email
     mail.subject = "How to pay for " << @dog.Name << "'s registration!"
-    mail.body = ""
+    str = @rego.comformation_message
+    mail.text_part do 
+      body str
+    end
 
     mail.deliver!
   end
