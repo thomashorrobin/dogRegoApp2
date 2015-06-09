@@ -6,4 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Breed.create([{ BreedName: 'Poodle' },{ BreedName: 'Bulldog' },{ BreedName: 'Terror' }])
+Breed.create([{ BreedName: 'Poodle' },{ BreedName: 'Bulldog' },{ BreedName: 'Labrador Retriever' },{ BreedName: 'Golden Retriever' },{ BreedName: 'German Shepherd' },{ BreedName: 'Yorkshire Terrier' },{ BreedName: 'Beagle' },{ BreedName: 'Boxer' },{ BreedName: 'Rottweiler' },{ BreedName: 'Chihuahua' }])
+PricePlan.create([{ months: 3, price: 25 },{ months: 6, price: 65 },{ months: 12, price: 85 }])
