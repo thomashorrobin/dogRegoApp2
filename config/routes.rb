@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :price_plans
   get 'welcome/index'
 
   get 'welcome/setAdmin'

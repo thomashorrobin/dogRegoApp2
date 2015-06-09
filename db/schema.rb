@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607070250) do
+ActiveRecord::Schema.define(version: 20150609080257) do
 
   create_table "breeds", force: :cascade do |t|
     t.string   "BreedName",  limit: 255
@@ -39,16 +39,25 @@ ActiveRecord::Schema.define(version: 20150607070250) do
     t.string   "email",         limit: 255
   end
 
-  create_table "regos", force: :cascade do |t|
-    t.integer  "RegoLength", limit: 4
-    t.date     "StartDate"
-    t.date     "EndDate"
-    t.integer  "dog_id",     limit: 4, null: false
+  create_table "price_plans", force: :cascade do |t|
+    t.integer  "months",     limit: 4
+    t.integer  "price",      limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
+  create_table "regos", force: :cascade do |t|
+    t.integer  "RegoLength",    limit: 4
+    t.date     "StartDate"
+    t.date     "EndDate"
+    t.integer  "dog_id",        limit: 4, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "price_plan_id", limit: 4, null: false
+  end
+
   add_index "regos", ["dog_id"], name: "index_regos_on_dog_id", using: :btree
+  add_index "regos", ["price_plan_id"], name: "index_regos_on_price_plan_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -72,4 +81,5 @@ ActiveRecord::Schema.define(version: 20150607070250) do
   add_foreign_key "dogs", "breeds"
   add_foreign_key "dogs", "owners"
   add_foreign_key "regos", "dogs"
+  add_foreign_key "regos", "price_plans"
 end

@@ -9,12 +9,11 @@
 		<%= form_tag("/welcome/addrego") do %>
 			<%= hidden_field_tag(:dog_id, dog.id) %>
 		  <div class="field">
-		    <%= radio_button_tag(:months, "3") %>
-			<%= label_tag(:months_3, "3 months") %>
-			<%= radio_button_tag(:months, "6") %>
-			<%= label_tag(:months_6, "6 months") %>
-			<%= radio_button_tag(:months, "12") %>
-			<%= label_tag(:months_12, "One year") %>
+			<% @price_plans.each do |price_plan| %>
+			    <%= radio_button_tag(:price_plan_id, price_plan.id) %>
+				<%= label_tag(:price_plan_id, price_plan.months.to_s << " months for $" << price_plan.price.to_s) %>
+				<br />
+			<% end %>
 		  </div>  
 		  <%= submit_tag("Register dog") %>
 		<% end %>

@@ -1,3 +1,5 @@
-<p><%= "registered " << @dog.Name << " for " << @months.to_s << " months" %></p>
-<br />
+<h2><%= "Congratulations! You have registered " << @dog.Name << " for " << @months.to_s << " months!" %></h2>
+<hr />
+<h3>To complete <%= @dog.Name %>'s registration please pay </h3>
+<hr />
 <%= link_to "Back", root_path %>

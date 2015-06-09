@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Months:</strong>
+  <%= @price_plan.months %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @price_plan.price %>
+</p>
+
+<%= link_to 'Edit', edit_price_plan_path(@price_plan) %> |
+<%= link_to 'Back', price_plans_path %>

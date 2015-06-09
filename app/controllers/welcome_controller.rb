@@ -11,6 +11,7 @@ class WelcomeController < ApplicationController
       @owner.save
     end
     @dogs = @owner.dogs
+    @price_plans = PricePlan.all
   end
 
   def setAdmin
@@ -32,11 +33,12 @@ class WelcomeController < ApplicationController
 
   def addrego
     @dog = Dog.find(params[:dog_id])
-    @months = params[:months].to_i
+    @price_plan = PricePlan.find(params[:price_plan_id])
     @rego = Rego.new
-    @rego.RegoLength = @months
+    @rego.RegoLength = @price_plan.months
+    @rego.price_plan = @price_plan
     @rego.StartDate = Time.now
-    @rego.EndDate = Time.now + (@months * 4 * 7 * 24 * 60 * 60)
+    @rego.EndDate = Time.now + (@price_plan.months * 4 * 7 * 24 * 60 * 60)
     @rego.dog = @dog
     @rego.save
 
@@ -54,19 +56,21 @@ class WelcomeController < ApplicationController
         mail = Mail.new do
       # to      "thomasroberthorrobin@gmail.com"
       from    'Thomas Horrobin <thomas@dogregoapp.co.nz>' # Your from name and email address
-      subject 'How to pay for Barrys registration!'
+      # subject 'How to pay for Barrys registration!'
 
-      text_part do
-        body 'Mandrill speaks plaintext'
-      end
+      # text_part do
+      #   body 'Mandrill speaks plaintext'
+      # end
 
-      html_part do
-        content_type 'text/html; charset=UTF-8'
-        body '<em>Mandrill speaks wehbkajwcfj <strong>HTML</strong></em>'
-      end
+      # html_part do
+      #   content_type 'text/html; charset=UTF-8'
+      #   body '<em>Mandrill speaks wehbkajwcfj <strong>HTML</strong></em>'
+      # end
     end
 
     mail.to = current_user.email
+    mail.subject = "How to pay for " << @dog.Name << "'s registration!"
+    mail.body = ""
 
     mail.deliver!
   end
