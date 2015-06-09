@@ -1,6 +1,5 @@
 <h1>Welcome <%= @owner.Name %></h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<%= link_to 'Edit details', edit_owner_path(@owner) %>
+<%= link_to 'Update my details', edit_owner_path(@owner), :class => "btn btn-info active" %>
 <%= link_to 'Add Dog', action: 'createdog' %>
 <br />
 <% @dogs.each do |dog| %>
@@ -15,7 +14,7 @@
 				<br />
 			<% end %>
 		  </div>  
-		  <%= submit_tag("Register dog") %>
+		  <%= submit_tag("Register " << dog.Name) %>
 		<% end %>
 	<% else %>
 		<p><%= dog.Name %> Is allready registered</p>
