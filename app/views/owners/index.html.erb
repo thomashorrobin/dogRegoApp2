@@ -2,7 +2,7 @@
 
 <h1>Listing Owners</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,10 +16,10 @@
       <tr>
         <td><%= owner.Name %></td>
         <td><%= owner.PostalAddress %></td>
-        <td><%= link_to 'Show', owner %></td>
-        <td><%= link_to 'Show Dogs', dogs_path %></td>
-        <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', owner, class: 'btn btn-info active'  %></td>
+        <td><%= link_to 'Show Dogs', dogs_path, class: 'btn btn-info active'  %></td>
+        <td><%= link_to 'Edit', edit_owner_path(owner), class: 'btn btn-default active'  %></td>
+        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger active'  %></td>
       </tr>
     <% end %>
   </tbody>

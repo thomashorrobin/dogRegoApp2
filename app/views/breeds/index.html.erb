@@ -2,7 +2,7 @@
 
 <h1>Listing Breeds</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Breedname</th>
@@ -14,9 +14,9 @@
     <% @breeds.each do |breed| %>
       <tr>
         <td><%= breed.BreedName %></td>
-        <td><%= link_to 'Show', breed %></td>
-        <td><%= link_to 'Edit', edit_breed_path(breed) %></td>
-        <td><%= link_to 'Destroy', breed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', breed, class: 'btn btn-info active' %></td>
+        <td><%= link_to 'Edit', edit_breed_path(breed), class: 'btn btn-default active' %></td>
+        <td><%= link_to 'Destroy', breed, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger active' %></td>
       </tr>
     <% end %>
   </tbody>

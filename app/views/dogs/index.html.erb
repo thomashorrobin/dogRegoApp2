@@ -2,7 +2,7 @@
 
 <h1>Listing Dogs</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= dog.Name %></td>
         <td><%= dog.Birthday %></td>
-        <td><%= link_to 'Show', dog %></td>
-        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
-        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', dog, class: 'btn btn-info active'  %></td>
+        <td><%= link_to 'Edit', edit_dog_path(dog), class: 'btn btn-default active'  %></td>
+        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger active'  %></td>
       </tr>
     <% end %>
   </tbody>

@@ -2,7 +2,7 @@
 
 <h1>Listing Price Plans</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Months</th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= price_plan.months %></td>
         <td><%= price_plan.price %></td>
-        <td><%= link_to 'Show', price_plan %></td>
-        <td><%= link_to 'Edit', edit_price_plan_path(price_plan) %></td>
-        <td><%= link_to 'Destroy', price_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', price_plan, class: 'btn btn-info active'  %></td>
+        <td><%= link_to 'Edit', edit_price_plan_path(price_plan), class: 'btn btn-default active'  %></td>
+        <td><%= link_to 'Destroy', price_plan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger active'  %></td>
       </tr>
     <% end %>
   </tbody>

@@ -2,7 +2,7 @@
 
 <h1>Listing Regos</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Dog</th>
@@ -20,9 +20,9 @@
         <td><%= rego.RegoLength.to_s << " months" %></td>
         <td><%= rego.StartDate %></td>
         <td><%= rego.EndDate %></td>
-        <td><%= link_to 'Show', rego %></td>
-        <td><%= link_to 'Edit', edit_rego_path(rego) %></td>
-        <td><%= link_to 'Destroy', rego, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', rego, class: 'btn btn-info active'  %></td>
+        <td><%= link_to 'Edit', edit_rego_path(rego), class: 'btn btn-default active'  %></td>
+        <td><%= link_to 'Destroy', rego, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger active'  %></td>
       </tr>
     <% end %>
   </tbody>
