@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :RegoLength %><br>
-    <%= f.number_field :RegoLength %>
+    <%= f.label :price_plan_id %><br>
+    <%= f.collection_select :price_plan_id, PricePlan.all,:id,:months, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :StartDate %><br>
